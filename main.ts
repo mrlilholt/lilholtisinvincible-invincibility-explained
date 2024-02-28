@@ -227,8 +227,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.makeInvincible, function (sprite
     sprites.destroy(otherSprite)
     // changes kind of sprite from "player" to "invincible" which means it doesn't interact with the block that overlaps the projectile
     sprite.setKind(SpriteKind.invincible)
+    // adds a countdown for the invincibility to show how long they have
+    info.startCountdown(5)
     // length of invisibility
-    pause(10000)
+    pause(4900)
+    // if you don't stop a countdown, the game ends.
+    info.stopCountdown()
     // ends invincibility
     sprites.destroy(sprite)
 })
